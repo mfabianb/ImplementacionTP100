@@ -25,10 +25,15 @@ public class VistaSensado extends javax.swing.JFrame {
 
         jTable1.getModel().addTableModelListener(new TableModelListener() {
 
+            @Override
             public void tableChanged(TableModelEvent e) {
                 binario = "";
                 for(int i=0; i<8; i++){
-                    binario += jTable1.getModel().getValueAt(0, i);
+                    binaux = (Integer)jTable1.getModel().getValueAt(0, i);
+                    if(binaux == 0 || binaux ==1){
+                        binario += binaux;
+                    }else{
+                    }
                 }
                 System.out.println("BIN:" + binario);
                 
@@ -174,5 +179,6 @@ public class VistaSensado extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
     private String binario;
+    private int binaux;
     private int decimal;
 }
